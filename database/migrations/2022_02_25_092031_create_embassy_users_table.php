@@ -15,6 +15,7 @@ class CreateEmbassyUsersTable extends Migration
     {
         Schema::create('embassy_users', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
 
@@ -24,6 +25,7 @@ class CreateEmbassyUsersTable extends Migration
 
             $table->unsignedBigInteger('embassy');
             $table->foreign('embassy')->on('embassies')->references('id')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
